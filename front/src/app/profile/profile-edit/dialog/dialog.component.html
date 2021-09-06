@@ -1,0 +1,43 @@
+<div>
+  <h1 mat-dialog-title>
+    <mat-icon color="warn">&#xf052;</mat-icon> {{ data.title }}
+  </h1>
+
+  <div mat-card-content *ngIf="data.action == 'deleteAccount'" }>
+    <p>supprimer votre compte?</p>
+  </div>
+
+  <form [formGroup]="passwordForm" *ngIf="data.action == 'updatePassword'">
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+        aria-hidden="false"
+        aria-label="password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'cacher le  mot de passe'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Confirmer</mat-label>
+      <input matInput type="password" formControlName="confirm" />
+    </mat-form-field>
+
+    <mat-error class="error" *ngIf="error">{{ error }}</mat-error>
+  </form>
+  <mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onClick()">OUI</button>
+    <button mat-raised-button (click)="cancel()">Annuler</button>
+  </mat-dialog-actions>
+</div>

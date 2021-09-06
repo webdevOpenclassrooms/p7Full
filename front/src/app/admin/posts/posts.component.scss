@@ -1,0 +1,37 @@
+mat-panel-description {
+  justify-content: right;
+}
+
+button {
+  margin-left: 1rem;
+}
+
+img {
+  max-height: 40vh;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.btn-close {
+  color: white;
+  background-color: red;
+  position: relative;
+  top: -19px;
+  margin-left: 99%;
+  cursor: pointer;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}
+
+.mat-dialog-content {
+  padding-top: 0 !important;
+
+  overflow: visible;
+}
+.mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+}

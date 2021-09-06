@@ -1,0 +1,31 @@
+<mat-spinner *ngIf="isFetching"></mat-spinner>
+
+<mat-accordion>
+  <mat-expansion-panel
+    *ngFor="let post of posts"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ post.title }} </mat-panel-title>
+      <mat-panel-description>
+        {{ post.user.username }}
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="
+            editThread(post.id, post.title, post.content, post.imagePath)
+          "
+        >
+          <span class="material-icons"> edit </span> Edit
+        </button>
+
+        <button mat-raised-button color="warn" (click)="deleteThread(post.id)">
+          <span class="material-icons"> delete </span> delete
+        </button>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <img *ngIf="post.imagePath" src="{{ urlServer + post.imagePath }}" />
+    <p>{{ post.content }}</p>
+  </mat-expansion-panel>
+</mat-accordion>

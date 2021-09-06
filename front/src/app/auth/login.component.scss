@@ -1,0 +1,19 @@
+.profil-card {
+  max-width: 250px;
+  margin: auto;
+}
+mat-form-field {
+  width: 100%;
+}
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-around;
+}
+.emailIcon {
+  padding-right: 10px;
+}
+.error {
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}

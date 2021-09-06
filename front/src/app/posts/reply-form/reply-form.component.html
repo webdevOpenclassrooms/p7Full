@@ -1,0 +1,18 @@
+<mat-card class="replyForm">
+  <form [formGroup]="replyForm" class="replyForm-form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="legacy">
+      <mat-label>Commenter</mat-label>
+      <textarea
+        matInput
+        formControlName="content"
+        cdkTextareaAutosize
+        id="content"
+      ></textarea>
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" cdkFocusInitial>
+        <mat-icon>save</mat-icon>
+      </button>
+    </mat-dialog-actions>
+  </form>
+</mat-card>

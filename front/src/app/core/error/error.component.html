@@ -1,0 +1,12 @@
+<div mat-dialog-title>
+  <p class="title"><mat-icon color="warn">&#xf052;</mat-icon> Erreur</p>
+</div>
+
+<p mat-dialog-content>
+  {{ data }}
+</p>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" cdkFocusInitial (click)="onClick()">
+    Ok
+  </button>
+</div>

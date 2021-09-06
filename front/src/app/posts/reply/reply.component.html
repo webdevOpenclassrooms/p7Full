@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content class="content">
+    <p>{{ reply.content }}</p>
+  </mat-card-content>
+  <mat-card-header [routerLink]="['/profile/', reply.user.id]">
+    <img
+      mat-card-avatar
+      src="{{ this.avatar }}"
+      alt="avatar de : {{ reply.user.username }}"
+    />
+    <mat-card-title>
+      {{ reply.user.username }}
+      <mat-card-subtitle>
+        Publié il y a
+        {{ sinceDisplay }}
+      </mat-card-subtitle>
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>

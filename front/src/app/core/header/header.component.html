@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <button *ngIf="!username" mat-button [routerLink]="['auth/login']">
+    login
+  </button>
+
+  <div class="loggedInDiv" *ngIf="username">
+    <p>Salut {{ username }}!</p>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img
+        z
+        class="avatar mat-elevation-z10"
+        src="{{ avatar }}"
+        alt="image de {{ username }}"
+      />
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['profile/edit']">
+        Modifier mon profil
+      </button>
+      <button mat-menu-item (click)="toggleTheme.emit()">
+        Changer de theme
+      </button>
+      <button mat-menu-item [routerLink]="['']" (click)="onLogout()">
+        Déconnexion
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

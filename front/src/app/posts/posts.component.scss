@@ -1,0 +1,90 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+.replies {
+  margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  @media (min-width: 720px) {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+mat-card-header {
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  cursor: pointer;
+  max-width: 70%;
+  margin: 30px auto !important;
+}
+
+mat-card {
+  max-width: 70vw;
+}
+
+.content {
+  margin: 14px 80px 30px !important;
+}
+
+@mixin tooltip($text) {
+  position: relative;
+  &::after {
+    font-size: 12px;
+    content: $text;
+    margin-top: 2px;
+    width: 80px;
+    background-color: #dcdcdc;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0 3px;
+    position: absolute;
+    z-index: 99;
+    top: 110%;
+    left: 50%;
+    margin-left: -40px;
+    transform: scale(0);
+    transition: transform ease-out 250ms;
+    transform-origin: top;
+  }
+  &:hover::after {
+    transition-delay: 1s;
+    transform: scale(1);
+  }
+}
+
+.btn-edit {
+  @include tooltip('edit');
+}
+.btn-like {
+  @include tooltip('aimer');
+}
+.btn-reply {
+  @include tooltip('répondre');
+}
+
+.replyForm {
+  margin-bottom: 1em;
+  &-form {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+}

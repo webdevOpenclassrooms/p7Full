@@ -1,0 +1,3 @@
+[submodule "dist/front"]
+        path = dist/front
+        url = git@github.com:neuroloops/openclassrooms-p7.git

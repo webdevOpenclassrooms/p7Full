@@ -1,0 +1,41 @@
+mat-dialog-content {
+  display: block;
+
+  margin: 0 auto;
+  @media screen and (max-width: 500px) {
+    width: 80vw;
+  }
+}
+.image-preview > * {
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+h2 {
+  margin-left: 1em;
+}
+
+.div-center {
+  // width: 100%;
+  text-align: center;
+}
+.btn-center {
+  margin: 0 auto;
+  text-align: center;
+}

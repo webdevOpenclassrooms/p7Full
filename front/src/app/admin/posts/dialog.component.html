@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+  <span class="material-icons btn-close" (click)="onNoClick()"> cancel </span>
+  <form [formGroup]="threadForm" (ngSubmit)="onSave()">
+    <mat-form-field *ngIf="data.title" appearance="fill">
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <img *ngIf="data.imagePath" src="{{ urlServer + data.imagePath }}" />
+    <br />
+    <mat-form-field *ngIf="data.content" appearance="fill">
+      <textarea rows="5" matInput formControlName="content"></textarea>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" cdkFocusInitial type="submit">
+        <mat-icon>save</mat-icon> Valider
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

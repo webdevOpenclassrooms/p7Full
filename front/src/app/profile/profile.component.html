@@ -1,0 +1,47 @@
+<mat-spinner *ngIf="isFetching"></mat-spinner>
+
+<mat-card *ngIf="!isFetching" class="profil-card">
+  <img
+    mat-card-image
+    class="imageCover"
+    src="{{ cover }}"
+    alt="image du profile de: {{ user.user.username }}"
+  />
+
+  <a
+    mat-flat-button
+    class="btn__edit"
+    *ngIf="myProfile"
+    [routerLink]="['/profile/edit/']"
+  >
+    <mat-icon color="accent">edit</mat-icon> Edit
+  </a>
+  <mat-card-header>
+    <img mat-card-avatar src="{{ avatar }}" />
+    <mat-card-title>{{ user.user.username }} </mat-card-title>
+    <mat-card-subtitle>
+      <mat-icon class="icon__position">work</mat-icon>
+      {{ user.service || 'on ne sait pas' }}
+      <mat-icon class="icon__position">place</mat-icon
+      >{{ user.city || 'Ville' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      {{ user.bio }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <p>
+      <mat-icon color="primary">description</mat-icon>
+      {{ user.nbPosts }} post<span *ngIf="user.nbPosts >= 2">s</span>
+    </p>
+    <p><mat-icon color="accent">person_add</mat-icon> ajouter</p>
+    <p>
+      <mat-icon color="primary">groups</mat-icon>
+      {{ user.nbFriends }} ami<span *ngIf="user.nbFriends >= 2">s</span>
+    </p>
+  </mat-card-footer>
+</mat-card>

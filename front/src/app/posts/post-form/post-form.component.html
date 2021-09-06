@@ -1,0 +1,69 @@
+<mat-dialog-content>
+  <mat-card>
+    <div class="header">
+      <h2>
+        {{ name }}
+      </h2>
+      <div>
+        <button
+          *ngIf="edit"
+          mat-raised-button
+          color="warn"
+          (click)="onDelete()"
+        >
+          <mat-icon>&#xee872;</mat-icon> Supprimer
+        </button>
+      </div>
+    </div>
+
+    <form [formGroup]="threadForm">
+      <mat-form-field>
+        <mat-label>Titre</mat-label>
+        <input matInput type="text" id="title" formControlName="title" />
+      </mat-form-field>
+      <br />
+      <div class="image-preview" *ngIf="imagePreview">
+        <img [src]="imagePreview" alt="preview d'image" />
+      </div>
+      <section class="div-center" *ngIf="!edit">
+        <button
+          mat-raised-button
+          color="accent"
+          color="accent"
+          type="button"
+          (click)="filePicker.click()"
+          class="btn-center"
+        >
+          <mat-icon>cloud_upload</mat-icon>
+          {{ imgBtnText }}
+        </button>
+
+        <input
+          type="file"
+          #filePicker
+          (change)="onFileAdded($event)"
+          hidden="false"
+        />
+      </section>
+      <br />
+
+      <mat-form-field appearance="fill">
+        <textarea
+          cdkTextareaAutosize
+          matInput
+          formControlName="content"
+          id="content"
+        ></textarea>
+      </mat-form-field>
+      <br />
+      <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="onSubmit()">
+          <mat-icon>save</mat-icon> Valider
+        </button>
+        <button mat-stroked-button color="accent" [routerLink]="['']">
+          <mat-icon>cancel</mat-icon> Annuler
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </mat-card>
+</mat-dialog-content>

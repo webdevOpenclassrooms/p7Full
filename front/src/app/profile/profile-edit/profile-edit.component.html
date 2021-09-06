@@ -1,0 +1,80 @@
+<mat-card>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <section class="div-center">
+      <div class="image-preview" *ngIf="imagePreview">
+        <img [src]="imagePreview" alt="preview d'avatar" />
+      </div>
+      <span>
+        <button
+          mat-raised-button
+          color="accent"
+          type="button"
+          (click)="filePicker.click()"
+        >
+          <mat-icon>cloud_upload</mat-icon>
+          {{ avatarBtnText }}
+        </button>
+      </span>
+      <input
+        type="file"
+        #filePicker
+        (change)="onFileAdded($event)"
+        hidden="false"
+      />
+    </section>
+
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input matInput type="text" id="username" formControlName="username" />
+    </mat-form-field>
+
+    <section class="div-center">
+      <button
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="confirmPassword()"
+      >
+        <mat-icon>&#xf042;</mat-icon> modifier mot de passe
+      </button>
+    </section>
+    <mat-form-field>
+      <mat-label>Service</mat-label>
+      <input matInput id="service" type="text" formControlName="service" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ville</mat-label>
+      <input matInput type="text" formControlName="city" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Bio</mat-label>
+      <textarea
+        cdkTextareaAutosize
+        matInput
+        formControlName="bio"
+        id="bio"
+      ></textarea>
+    </mat-form-field>
+    <br />
+    <mat-dialog-actions class="div-center">
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>save</mat-icon> Save
+      </button>
+      <a
+        mat-stroked-button
+        color="accent"
+        [routerLink]="['/profile/' + user.id]"
+      >
+        <mat-icon>cancel</mat-icon> Annuler
+      </a>
+    </mat-dialog-actions>
+    <section class="section__delete">
+      <button mat-button color="warn" (click)="confirmDelete()">
+        <mat-icon>delete</mat-icon> Supprimer le compte
+      </button>
+    </section>
+  </form>
+</mat-card>

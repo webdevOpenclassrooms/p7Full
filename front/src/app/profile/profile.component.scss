@@ -1,0 +1,41 @@
+.profil-card {
+  width: 100%;
+  margin: auto;
+}
+
+.btn__edit {
+  position: absolute;
+  margin-left: -86px;
+}
+
+mat-card {
+  .imageCover {
+    max-height: 100px;
+    object-fit: cover;
+  }
+}
+mat-card-content > p {
+  margin: 0 auto;
+  padding-left: 100px;
+  width: 100%;
+}
+
+mat-card-header {
+  .icon__position {
+    font-size: 18px;
+    margin-right: -6px;
+  }
+
+  img {
+    border: 5px white solid;
+    margin-top: -50px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+<mat-spinner *ngIf="isFetching"></mat-spinner>
+
+<ul>
+  <li *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+    <ul class="replies" *ngIf="postId">
+      <app-reply-form [postId]="postId" *ngIf="logged"></app-reply-form>
+      <li *ngFor="let reply of replies">
+        <app-reply [reply]="reply"></app-reply>
+      </li>
+    </ul>
+  </li>
+</ul>

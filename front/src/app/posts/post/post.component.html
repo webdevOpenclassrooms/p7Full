@@ -1,0 +1,64 @@
+<mat-card>
+  <img
+    class="post__image"
+    mat-card-image
+    *ngIf="post.imagePath"
+    [src]="urlServer + post.imagePath"
+    alt="image du billet"
+  />
+  <mat-card-content>
+    <h1 [routerLink]="[post.id]">{{ post.title }}</h1>
+
+    <p class="content">
+      {{ post.content }}
+    </p>
+  </mat-card-content>
+  <mat-card-header [routerLink]="['/profile/', post.user.id]">
+    <img
+      mat-card-avatar
+      src="{{ this.avatar }}"
+      alt="avatar de : {{ post.user.username }}"
+    />
+    <mat-card-title color="primary">
+      {{ post.user.username }}
+      <mat-card-subtitle>
+        Publié il y a
+        {{ sinceDisplay }}
+      </mat-card-subtitle>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-footer>
+    <button
+      *ngIf="logged"
+      [routerLink]="[post.id]"
+      mat-stroked-button
+      aria-label="répondre au billet"
+      class="btn-reply"
+    >
+      <mat-icon color="accent">reply</mat-icon>
+    </button>
+
+    <button
+      mat-stroked-button
+      aria-label="aimer le billet"
+      class="btn-like"
+      [matBadge]="this.post.nbLike"
+      [matBadgeHidden]="badgeHidden"
+      matBadgeColor="warn"
+      (click)="likeBtn(post.id)"
+    >
+      <mat-icon color="accent">favorite</mat-icon>
+    </button>
+
+    <button
+      *ngIf="post.user.id === userId"
+      mat-stroked-button
+      aria-label="éditer le billet"
+      class="btn-edit"
+      [routerLink]="['/posts/edit', post.id]"
+      (click)="sendPost(post)"
+    >
+      <mat-icon color="accent">&#xee3c9;</mat-icon>
+    </button>
+  </mat-card-footer>
+</mat-card>

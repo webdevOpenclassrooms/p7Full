@@ -1,0 +1,53 @@
+<mat-sidenav-container
+  class="app-sidenav-container"
+  [class.dark-theme]="isDarkTheme"
+>
+  <mat-sidenav
+    #sidenav
+    class="app-sidenav mat-elevation-z10"
+    [opened]="!isScreenSmall"
+    [mode]="!isScreenSmall ? 'side' : 'over'"
+  >
+    <mat-toolbar color="primary">
+      <mat-icon
+        class="logo"
+        svgIcon="logoIcon"
+        aria-hidden="false"
+        color="primary"
+        aria-label="Groupomania Logo"
+      ></mat-icon>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine [routerLink]="['']"
+          ><mat-icon color="accent">home</mat-icon> Home</a
+        >
+      </mat-list-item>
+      <mat-list-item *ngIf="userId">
+        <a matLine [routerLink]="['profile', userId]"
+          ><mat-icon color="accent">person</mat-icon> Profil</a
+        >
+      </mat-list-item>
+      <mat-list-item *ngIf="userId">
+        <a matLine [routerLink]="['posts/new']"
+          ><mat-icon color="accent">comment</mat-icon> Nouveau</a
+        >
+      </mat-list-item>
+      <mat-list-item *ngIf="isAdmin">
+        <a matLine [routerLink]="['/admin']"
+          ><mat-icon color="accent">&#xeef3d;</mat-icon> Admin</a
+        >
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="app-sidenav-content">
+    <app-header
+      (toggleTheme)="toggleTheme()"
+      (toggleSidenav)="sidenav.toggle()"
+    >
+    </app-header>
+    <app-main [ngClass]="{ dark: isDarkTheme }"></app-main>
+  </div>
+</mat-sidenav-container>
